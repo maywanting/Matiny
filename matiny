@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+function dd($value) {
+    var_dump($value);
+    die();
+}
+function d($value) {
+    var_dump($value);
+}
+
+require __DIR__ . '/core/console.php';
+
+unset($argv['0']);
+
+$console = new Core\Console($argv);
+
+if ($console->run()) {
+    echo $console->success();
+} else {
+    echo $console->fail();
+}
+?>
