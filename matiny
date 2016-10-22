@@ -8,15 +8,23 @@ function d($value) {
     var_dump($value);
 }
 
-require __DIR__ . '/core/console.php';
+//autoload classfile
+function __autoload($classname) {
+    $path = explode('\\', $classname);
 
-unset($argv['0']);
-
-$console = new Core\Console($argv);
-
-if ($console->run()) {
-    echo $console->success();
-} else {
-    echo $console->fail();
+    $realPath = '';
+    foreach ($path as $value) {
+        $realPath .= '/' . $value;
+    }
+    require_once __DIR__ . $realPath . '.php';
 }
+
+$console = new \Core\Console($argv[1]);
+
+$console->cliHanddle($argv);
+
+$supportPlugins = $console->getSupportPlugin();
+
+$plugin = new \Core\Plugin();
+
 ?>
