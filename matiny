@@ -8,16 +8,22 @@ function d($value) {
     var_dump($value);
 }
 
-//autoload classfile
-function __autoload($classname) {
-    $path = explode('\\', $classname);
+define('__APPDIR__', __DIR__);
 
-    $realPath = '';
-    foreach ($path as $value) {
-        $realPath .= '/' . $value;
-    }
-    require_once __DIR__ . $realPath . '.php';
-}
+require_once __APPDIR__ . '/Core/Autoload.php';
+
+//autoload classfile
+// function __autoload($classname) {
+    // $path = explode('\\', $classname);
+
+    // $realPath = '';
+    // foreach ($path as $value) {
+        // $realPath .= '/' . $value;
+    // }
+    // require_once __DIR__ . $realPath . '.php';
+// }
+
+spl_autoload_register(array('\\Core\\AutoLoad', 'loadClassLoader'));
 
 $console = new \Core\Console($argv[1]);
 
@@ -25,6 +31,9 @@ $console->cliHanddle($argv);
 
 $supportPlugins = $console->getSupportPlugin();
 
-$plugin = new \Core\Plugin();
+foreach($supportPlugins as $value) {
+    $plugin = new \Core\Plugin($value);
+    $plugin->console($argv[1]);
+}
 
 ?>

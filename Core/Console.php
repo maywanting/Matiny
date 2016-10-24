@@ -8,6 +8,8 @@ class Console {
 
     public function __construct ($commond) {
         $this->commond = $commond;
+        $className = '\\Console\\' . ucwords($this->commond) . 'Console';
+        $this->class = new $className($this->params);
     }
 
     public function cliHanddle($request) {
@@ -18,8 +20,6 @@ class Console {
     }
 
     public function getSupportPlugin() {
-        $className = '\\Console\\' . ucwords($this->commond) . 'Console';
-        $this->class = new $className($this->params);
         return $this->class->getSupportPlugin();
     }
 
