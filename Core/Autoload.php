@@ -52,6 +52,11 @@ class Autoload {
             $realPath .= '/' . $value;
         }
 
-        require_once __APPDIR__ . $realPath . '/index.php';
+        $fileName = __APPDIR__ . $realPath;
+        if (file_exists($fileName . '.php')) {
+            require_once __APPDIR__ . $realPath . '.php';
+        } else {
+            require_once __APPDIR__ . $realPath . '/index.php';
+        }
     }
 }

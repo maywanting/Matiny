@@ -11,7 +11,12 @@ class Plugin {
         $this->class =  new $className();
     }
 
-    public function console($commond) {
-        $this->class->index($commond);
+    public function console($request) {
+        $commond = $request[1];
+        $params = [];
+        for ($i = 2; isset($request[$i]); $i++) {
+            $params[] = $request[$i];
+        }
+        $this->class->index($commond, $params);
     }
 }

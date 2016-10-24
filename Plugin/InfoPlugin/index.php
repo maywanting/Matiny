@@ -1,9 +1,10 @@
 <?php namespace Plugin;
 
-class MdPlugin extends Plugin{
-    public function new($avg) {
+class InfoPlugin extends Plugin{
+    public function new($argv) {
         $filePath = __APPDIR__ . '/public/' . date('Y/m/d') . '/';
-        $fileName = $filePath . $avg . '.md';
+        $fileName = $filePath . $argv . '.info';
+        $modelName = __APPDIR__ . '/Plugin/InfoPlugin/model.info';
 
         if (file_exists($fileName)) {
             echo $fileName. " is exist\n";
@@ -12,7 +13,7 @@ class MdPlugin extends Plugin{
             if (!is_dir($filePath)) {
                 mkdir($filePath, 0775, true);
             }
-            file_put_contents($fileName, '');  //default file can be setted;
+            file_put_contents($fileName, file_get_contents($modelName));  //default file can be setted;
             echo $fileName . " created\n";
             return true;
         }
