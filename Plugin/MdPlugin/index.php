@@ -1,8 +1,11 @@
 <?php namespace Plugin;
 
+use \Config\Plugin\PluginConfig;
+
 class MdPlugin extends Plugin{
+
     public function new($avg) {
-        $filePath = __APPDIR__ . '/public/' . date('Y/m/d') . '/';
+        $filePath = __APPDIR__ . '/source/' . $this->config['number'] . $avg . '/';
         $fileName = $filePath . $avg . '.md';
 
         if (file_exists($fileName)) {

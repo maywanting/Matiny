@@ -2,7 +2,7 @@
 
 class InfoPlugin extends Plugin{
     public function new($argv) {
-        $filePath = __APPDIR__ . '/public/' . date('Y/m/d') . '/';
+        $filePath = __APPDIR__ . '/source/' . $this->config['number'] . $argv . '/';
         $fileName = $filePath . $argv . '.info';
         $modelName = __APPDIR__ . '/Plugin/InfoPlugin/model.info';
 
