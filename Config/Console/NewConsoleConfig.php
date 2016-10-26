@@ -8,4 +8,8 @@ class NewConsoleConfig implements ConsoleConfig {
             'InfoPlugin',
         ];
     }
+
+    public function getNewUrl() {
+        return __APPDIR__ . '/source/';
+    }
 }

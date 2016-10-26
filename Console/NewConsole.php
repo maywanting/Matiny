@@ -18,4 +18,15 @@ class NewConsole extends NewConsoleConfig implements Console {
 
     public function error() {
     }
+
+    public function previous() {
+        $newPath = $this->getNewUrl() . $this->params[0] . '/';
+        if (!is_dir($newPath)) {
+            mkdir($newPath, 0775, true);
+        }
+    }
+
+    public function __call($name, $params) {
+        return true;
+    }
 }

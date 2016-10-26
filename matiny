@@ -15,14 +15,15 @@ require_once __APPDIR__ . '/Core/Autoload.php';
 //autoload classfile
 spl_autoload_register(array('\\Core\\AutoLoad', 'loadClassLoader'));
 
-$console = new \Core\Console($argv[1]);
+$console = new \Core\Console($argv);
 
-$console->cliHanddle($argv);
+//run the command
+$console->cliHanddle();
 
-$supportPlugins = $console->getSupportPlugin();
-foreach($supportPlugins as $value) {
-    $plugin = new \Core\Plugin($value);
-    $plugin->console($argv);
-}
+// $supportPlugins = $console->getSupportPlugin();
+// foreach($supportPlugins as $value) {
+    // $plugin = new \Core\Plugin($value);
+    // $plugin->console($argv);
+// }
 
 ?>
