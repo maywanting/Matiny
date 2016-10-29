@@ -1,7 +1,5 @@
 <?php namespace Plugin;
 
-use \Config\Plugin\PluginConfig;
-
 class MdPlugin extends Plugin{
 
     //new 命令
