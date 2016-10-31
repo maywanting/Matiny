@@ -4,4 +4,6 @@
 - 文件存储的话，路径格式配置，然后路径创建在总的交给console创建，不交给plugin创建，plugin只能创建文件。
 - 学习vim的插件机智，支持多语言版本的插件。
 
+- 考虑集成composer
+
 - 主题参考：http://blank.withemes.com/

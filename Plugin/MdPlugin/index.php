@@ -15,4 +15,9 @@ class MdPlugin extends Plugin{
             return true;
         }
     }
+
+    //construct 命令
+    public static function construct() {
+        dd("fuck");
+    }
 }
