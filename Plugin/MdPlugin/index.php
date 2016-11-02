@@ -24,12 +24,10 @@ class MdPlugin extends Plugin{
         $htmlName = __APPDIR__ . '/source/test/test.html';
 
         $markdown = file_get_contents($fileName);
-        $markdown = explode("\n", $markdown);
 
         $parsedown = new \Parsedown();
-        $html = [];
-        foreach ($markdown as $value) {
-            echo $parsedown->text($value);
-        }
+        file_put_contents($htmlName, "<html>\n<head>\n<meta charset='UTF-8'/>\n</head><body>");
+        file_put_contents($htmlName, $parsedown->text($markdown), FILE_APPEND);
+        file_put_contents($htmlName, "</body></html>", FILE_APPEND);
     }
 }
