@@ -26,8 +26,6 @@ class MdPlugin extends Plugin{
         $markdown = file_get_contents($fileName);
 
         $parsedown = new \Parsedown();
-        file_put_contents($htmlName, "<html>\n<head>\n<meta charset='UTF-8'/>\n</head><body>");
         file_put_contents($htmlName, $parsedown->text($markdown), FILE_APPEND);
-        file_put_contents($htmlName, "</body></html>", FILE_APPEND);
     }
 }
