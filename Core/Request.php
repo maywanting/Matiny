@@ -1,8 +1,10 @@
 <?php namespace Core;
 
 class Request {
-    protected $server;
+    protected $uri;
     protected $type;
+    protected $method;
+    protected $
 
     public function __construct() {
         $this->server = $_SERVER;

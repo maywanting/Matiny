@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "on");
+
 function dd($value) {
     echo "<pre>";
     var_dump($value);
@@ -10,14 +13,11 @@ function d($value) {
     var_dump($value);
     echo "</pre>";
 }
-define('__APPDIR__', __DIR__);
+define('__APPDIR__', realpath(__DIR__ . '/../'));
 
 require_once __APPDIR__ . '/Core/Autoload.php';
 
 //autoload classfile
-spl_autoload_register(array('\\Core\\AutoLoad', 'loadClassLoader'));
+spl_autoload_register(array('\Core\AutoLoad', 'loadClassLoader'));
 
-dd("ccc");
-$console = new \Core\Console($argv);
 $request = new \Core\Request();
-dd($request);

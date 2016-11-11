@@ -11,8 +11,8 @@ class Console {
     public function __construct ($request) {
         $this->command = $request[1];
         $this->params = array_slice($request, 1);
-        
-        $className = '\Console\' . ucwords($this->command) . 'Console';
+
+        $className = '\\Console\\' . ucwords($this->command) . 'Console';
         $this->class = new $className($this->params);
     }
 
