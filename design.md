@@ -60,3 +60,9 @@ matiny项目文件
     'new':true,
     'construct':true,
 }
+
+
+# 2016-11-21 考虑设计
+
+## 命令模式
+以new为例
