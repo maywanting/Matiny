@@ -1,7 +1,5 @@
-<html>
-<head>
-<meta charset='UTF-8'/>
-</head><body><h1>采用PDO对象和mysql进行交互</h1>
+<h1>采用PDO对象和mysql进行交互</h1>
+<hr />
 <p>最近开始自己着手写一个小的项目,采用PHP+Mysql那一套进行编写。所以说，项目一开始便是连接数据库。之前我只了解过通过mysql_connect函数进行连接，这绝对是最低档次的连接数据库，之后知道了一个PDO对象这么个专门处理和数据库之间操作的对象，简直就和发现了新大陆一样。</p>
 <blockquote>
 <h2>创建PDO对象</h2>
@@ -353,4 +351,4 @@ $results = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC); //$result存储返回的数据
 $stmt-&gt;closeCursor();
 </code></pre>
 <p>这就是一套基本的交互过程，不过本文以查询为例，插入和删除也是同样的，只是没有了获取数据这一过程。</p>
-<p>The End~</p></body></html>
+<p>The End~</p>

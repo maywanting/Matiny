@@ -9,7 +9,7 @@ class Console {
     private $class;
 
     public function __construct ($request) {
-        $this->command = $request[1];
+        $this->command = $request[0];
         $this->params = array_slice($request, 1);
 
         $className = '\\Console\\' . ucwords($this->command) . 'Console';
@@ -20,7 +20,7 @@ class Console {
         $this->class->previous();
 
         foreach($this->class->getSupportPlugin() as $plugin) {
-            Plugin::console($plugin, $this->command, $this->params);
+            Plugin::console($plugin, $this->command, $this->class->getParams());
         }
 
         $this->class->after();
@@ -34,9 +34,5 @@ class Console {
     }
 
     public function error() {
-    }
-
-    public function getParams() {
-        return $this->params;
     }
 }

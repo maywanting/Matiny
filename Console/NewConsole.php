@@ -19,6 +19,10 @@ class NewConsole extends NewConsoleConfig implements Console {
     public function error() {
     }
 
+    public function getParams() {
+        return $this->params;
+    }
+
     public function previous() {
         $newPath = $this->getNewUrl() . $this->params[0] . '/';
         if (!is_dir($newPath)) {

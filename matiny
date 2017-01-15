@@ -14,9 +14,8 @@ require_once __APPDIR__ . '/Core/Autoload.php';
 
 //autoload classfile
 spl_autoload_register(array('\\Core\\AutoLoad', 'loadClassLoader'));
-
-$console = new \Core\Console($argv);
-
+$console = new \Core\Console(array_slice($argv, 1));
+// dd($console);
 //run the command
 $console->cliHanddle();
 

@@ -10,4 +10,7 @@ interface Console {
 
     //获取命令描述
     public function getDescription();
+
+    //获取参数
+    public function getParams();
 }
