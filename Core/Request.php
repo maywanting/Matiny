@@ -21,4 +21,8 @@ class Request {
         $this->uri = $_SERVER['REQUEST_URI'];
         $this->userAgent = $_SERVER['HTTP_USER_AGENT'];
     }
+
+    public function getController() {
+        $controller = Route::getController($this->type, $this->uri);
+    }
 }
