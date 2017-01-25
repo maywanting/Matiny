@@ -24,4 +24,4 @@ $request = new \Core\Request(); //分解request
 
 require_once __APPDIR__ . '/Http/routes.php';
 
-\Core\Route::dispatch($request);
+echo \Core\Route::dispatch($request);

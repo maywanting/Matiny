@@ -17,9 +17,12 @@ class Route {
         $callback = self::${$method}[$uri];
 
         if (is_callable($callback)) {
-            dd(call_user_func($callback));
+            return call_user_func($callback);
         } else {
-            dd('bb');
+            $callbacks = explode('@', $callback);
+            $className = '\\Http\\' . $callbacks[0];
+            $class = new $className();
+            return call_user_func_array([$class, $callbacks[1]], []);
         }
     }
 }
