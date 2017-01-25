@@ -2,9 +2,7 @@
 >- 写default主题……
 
 ## 路由设置
->- 路由重写（nginx的路由规则)
-- 路由重写(apache的路由规则编写）
-- 路由注册
+- 请求皆为写死，不支持模糊匹配
 - 请求的分解处理
 - 调取plugin中的数据
 - 拼接html文本返回请求
@@ -42,6 +40,7 @@
 - 考虑到重名，建议取文件的md5，然后作为文件名
 - 评论中用户的头像，用gravatar。https://en.gravatar.com/emails
 - 多语言支持
+- 路由支持其他type
 - 学习wordpress，vim，hexo，laravel
 
 - 主题参考：http://blank.withemes.com/

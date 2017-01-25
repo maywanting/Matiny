@@ -9,7 +9,7 @@ class Request {
     /**
      * @description: 请求的类型
      */
-    protected $type;
+    protected $method;
 
     /**
      * @description: userAgent
@@ -17,12 +17,20 @@ class Request {
     protected $userAgent;
 
     public function __construct() {
-        $this->type = $_SERVER['REQUEST_METHOD'];
+        $this->method = $_SERVER['REQUEST_METHOD'];
         $this->uri = $_SERVER['REQUEST_URI'];
         $this->userAgent = $_SERVER['HTTP_USER_AGENT'];
     }
 
-    public function getController() {
-        $controller = Route::getController($this->type, $this->uri);
+    public function getUri() {
+        return $this->uri;
+    }
+
+    public function getMethod() {
+        return $this->method;
+    }
+
+    public function getUserAgent() {
+        return $this->userAgent;
     }
 }
