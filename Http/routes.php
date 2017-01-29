@@ -9,4 +9,4 @@ Route::get('/aa', function () {
     return 'aaaa';
 });
 
-Route::post('/lailailai/cdvfv', 'TestdController@index');
+Route::post('/lailailai/cdvfv', 'TestdDispatcher@index');
