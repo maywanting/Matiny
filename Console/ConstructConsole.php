@@ -11,6 +11,7 @@ class ConstructConsole extends ConstructConsoleConfig implements Console {
     }
 
     public function getDescription() {
+        return '将markdown博客原文转化生成html';
     }
 
     public function success() {

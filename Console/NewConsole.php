@@ -11,6 +11,7 @@ class NewConsole extends NewConsoleConfig implements Console {
     }
 
     public function getDescription() {
+        return '创建一个新的博客';
     }
 
     public function success() {

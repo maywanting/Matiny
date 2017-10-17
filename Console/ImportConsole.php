@@ -10,6 +10,7 @@ class ImportConsole extends ImportConsoleConfig implements Console {
     }
 
     public function getDescription() {
+        return '导入markdown博客原文';
     }
 
     public function success() {
